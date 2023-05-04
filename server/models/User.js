@@ -1,24 +1,34 @@
 const { Schema, model } = require('mongoose');
 
-const matchupSchema = new Schema({
-  tech1: {
+const userSchema = new Schema({
+  name: {
     type: String,
     required: true,
   },
-  tech2: {
+  id: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
     type: String,
     required: true,
   },
-  tech1_votes: {
+  tickets: {  //create a link to the ticket
     type: Number,
     default: 0,
   },
-  tech2_votes: {
+  email: {
     type: Number,
     default: 0,
+  },
+  phone: {
+    type: String,
+    required: true,
+    unique: true,
   },
 });
 
-const Matchup = model('Matchup', matchupSchema);
+const Matchup = model('user', userSchema);
 
 module.exports = Matchup;
