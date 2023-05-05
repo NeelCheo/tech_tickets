@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Broken phone",
+    "userId":"placeholderid1",
+    "adminId":"placeholderadminid1",
+    "devices":"phone",
+    "issues":"hardware",
+    "status":"open"
+  },
+  {
+    "title": "windows not loading",
+    "userId":"placeholderid2",
+    "adminId":"placeholderadminid2",
+    "devices":"computer",
+    "issues":"software",
+    "status":"open"
+  },
+  {
+    "title": "diskdrive recovery",
+    "userId":"placeholderid1",
+    "adminId":"placeholderadminid1",
+    "devices":"computer",
+    "issues":"hardware",
+    "status":"closed"
+  }
+]
