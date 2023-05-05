@@ -5,30 +5,37 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  id: {
+  userName: {
     type: String,
     required: true,
-    unique: true,
+    trim: true,
   },
   password: {
     type: String,
     required: true,
+    minlength: 8,
   },
-  tickets: {  //create a link to the ticket
-    type: Number,
-    default: 0,
-  },
+  tickets: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Ticket',
+    },
+  ],
   email: {
-    type: Number,
-    default: 0,
+    type: String,
+    required: true,
+    match: [/.+@.+\..+/, 'Must match an email address!'],
   },
   phone: {
     type: String,
     required: true,
-    unique: true,
+  },
+  Admin: {
+    type: Boolean,
+    required: true,
   },
 });
 
-const Matchup = model('user', userSchema);
+const User = model('User', userSchema);
 
-module.exports = Matchup;
+module.exports = User;
