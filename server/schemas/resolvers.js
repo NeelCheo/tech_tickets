@@ -50,6 +50,14 @@ const resolvers = {
       // Return an `Auth` object that consists of the signed token and user's information
       return { token, user };
     },
+    addTicket: async (parent, { title, userId, adminId, devices, issues, status }) => {
+      // First we create the user
+      const ticket = await Ticket.create({ title, userId, adminId, devices, issues, status  });
+      // To reduce friction for the user, we immediately sign a JSON Web Token and log the user in after they are created
+  
+      // Return an `Auth` object that consists of the signed token and user's information
+      return { ticket };
+    },
   },
 };
 
