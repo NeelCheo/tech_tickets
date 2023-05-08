@@ -58,7 +58,12 @@ const resolvers = {
       // Return an `Auth` object that consists of the signed token and user's information
       return { ticket };
     },
-  },
+    removeTicket: async (parent, { id }) => {
+        const ticket = await Ticket.findOneAndDelete({
+          _id: id,
+        });
+      
+  }},
 };
 
 module.exports = resolvers;
