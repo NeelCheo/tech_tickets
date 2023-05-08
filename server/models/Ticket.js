@@ -6,11 +6,11 @@ const ticketSchema = new Schema({
     required: true,
   },
   userId:{ // who posted it 
-    type: Number,
+    type: String,
     required: true,
   },
   adminId:{ //who is working on it
-    type: Number,
+    type: String,
   },
   devices: { //computer roitners cellphones
     type: String,
