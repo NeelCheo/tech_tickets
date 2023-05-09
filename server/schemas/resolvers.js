@@ -56,16 +56,24 @@ const resolvers = {
 			// Return an `Auth` object that consists of the signed token and user's information
 			return { token, user };
 		},
-		addTicket: async (
-			parent,
-			{ title, userId, adminId, devices, issues, status }
+		addTicket: async ( parent, { title, userName, adminId, devices, issues, status }
 		) => {
 			// First we create the user
 			// To reduce friction for the user, we immediately sign a JSON Web Token and log the user in after they are created
 
-			// Return an `Auth` object that consists of the signed token and user's information
-			return Ticket.create({ title, userId, adminId, devices, issues, status });
-		},
+			// Return an `Auth` object that consists of the signed token and user's informatio
+
+      const ticket = await Ticket.create({ title, userName, adminId, devices, issues, status });
+
+      await User.findOneAndUpdate(
+        { userName: userName },
+        { $addToSet: { tickets: ticket._id } }
+      );
+
+      
+
+      return ticket;
+    },
 		removeTicket: async (parent, { id }) => {
 			return Ticket.findOneAndDelete({
 				_id: id,
