@@ -5,10 +5,10 @@ const ticketSchema = new Schema({
     type: String,
     required: true,
   },
-  userId:{ // who posted it 
-    type: String,
-    required: true,
-  },
+  // userName:{ // who posted it 
+  //   type: String,
+  //   required: true,
+  // },
   adminId:{ //who is working on it
     type: String,
   },
