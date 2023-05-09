@@ -9,8 +9,8 @@ const userSchema = new Schema({
 	userName: {
 		type: String,
 		required: true,
-		trim: true,
 		unique: true,
+		trim: true,
 	},
 	password: {
 		type: String,
@@ -26,8 +26,8 @@ const userSchema = new Schema({
 	email: {
 		type: String,
 		required: true,
-		match: [/.+@.+\..+/, 'Must match an email address!'],
 		unique: true,
+		match: [/.+@.+\..+/, 'Must match an email address!'],
 	},
 	phone: {
 		type: String,
