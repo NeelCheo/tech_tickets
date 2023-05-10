@@ -5,7 +5,7 @@ const ticketSchema = new Schema({
     type: String,
     required: true,
   },
-  userId:{ // who posted it 
+  userName:{ // who posted it 
     type: String,
     required: true,
   },
