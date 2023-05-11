@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_MATCHUPS } from '../utils/queries';
+import { css } from '@emotion/react';
+import { DropdownMenu} from '../utils/dropdown'
+
+const style = css`
+  color: grey;
+`
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_MATCHUPS, {
@@ -10,12 +16,12 @@ const Home = () => {
   const matchupList = data?.matchups || [];
 
   return (
-    <div className="card bg-white card-rounded w-50">
-      <div className="card-header bg-dark text-center">
-        <h1>Welcome to Tech Matchup!</h1>
+    <div css={style}>
+      <div >
+        <h1>Welcome to Tech Tips!</h1>
       </div>
-      <div className="card-body m-5">
-        <h2>Here is a list of matchups you can vote on:</h2>
+      <div >
+        <h2>Would you like to submit a ticket?</h2>
         {loading ? (
           <div>Loading...</div>
         ) : (
