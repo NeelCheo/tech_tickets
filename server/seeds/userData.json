@@ -1,0 +1,26 @@
+[
+  {
+    "name": "jhon doe",
+    "userName": "jhon123",
+    "password": "pass123",
+    "email": "jhond@test.com",
+    "phone": "123-456-7890",
+    "admin": false
+  },
+  {
+    "name": "jane doe",
+    "userName": "jane123",
+    "password": "word123",
+    "email": "janed@test.com",
+    "phone": "098-654-7890",
+    "admin": false
+  },
+  {
+    "name": "boss man",
+    "userName": "boss123",
+    "password": "good123",
+    "email": "boss@test.com",
+    "phone": "123-435-7345",
+    "admin": true
+  }
+]

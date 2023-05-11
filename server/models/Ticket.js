@@ -1,28 +1,34 @@
 const { Schema, model } = require('mongoose');
 
-const techSchema = new Schema({
-  title: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  userdata: { //connect to user info
-    type: String,
-    required: true,
-    unique: true,
-  },
-  devices: { //comouter roitners cellphones
-    type: String,
-    required: true,
-    unique: true,
-  },
-  issues: { // hardware softawre
-    type: String,
-    required: true,
-    unique: true,
-  },
+const ticketSchema = new Schema({
+	title: {
+		type: String,
+		required: true,
+	},
+	// userName:{ // who posted it
+	//   type: String,
+	//   required: true,
+	// },
+	adminId: {
+		//who is working on it
+		type: String,
+	},
+	devices: {
+		//computer roitners cellphones
+		type: String,
+		required: true,
+	},
+	issues: {
+		// hardware softawre
+		type: String,
+		required: true,
+	},
+	status: {
+		type: String,
+		required: true,
+	},
 });
 
-const Tech = model('Tech', techSchema);
+const Ticket = model('Ticket', ticketSchema);
 
-module.exports = Tech;
+module.exports = Ticket;
