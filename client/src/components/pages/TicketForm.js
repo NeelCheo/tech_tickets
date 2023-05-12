@@ -1,164 +1,144 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import Auth from "../../utils/auth";
-import { ADD_TICKET} from "../../utils/mutations";
-import { validateEmail } from "../../utils/helpers";
+import { Link } from "react-router-dom";
+import { ADD_TICKET } from "../../utils/mutations";
+import Login from "./Login";
 
-function TicketForm(props) {
-  const [formState, setFormState] = useState({
-    title: "",
-    userName: "",
-    adminId: "",
-    devices: "",
-    issues: "",
-    status: "New",
-  });
-  const [errMessage, setErrMessage] = useState("");
-  const [addTicket, { error }] = useMutation(ADD_TICKET);
 
-  const handleInputChange = (e) => {
-    const { title, value } = e.target;
-    setFormState({
-      ...formState,
-      [title]: value,
-    });
-    if (title === "") {
-      !validateEmail(value)
-        ? setErrMessage("Please tell us what trouble you are having")
-        : setErrMessage("");
-      return;
-    }
-  };
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
-    if (formState.title.trim() === "") {
-      setErrMessage("Name is required!");
-      return;
-    }
-    if (formState.userName.trim() === "" || !validateEmail(formState.email)) {
-      setErrMessage("Valid Email is required!");
-      return;
-    }
-    if (formState.adminId.trim() === "") {
-      setErrMessage("UserName is required!");
-      return;
-    }
-    if (formState.devices.trim() === "") {
-        setErrMessage("UserName is required!");
-        return;
-      }
-      if (formState.adminId.trim() === "") {
-        setErrMessage("UserName is required!");
-        return;
-      }
-      if (formState.adminId.trim() === "") {
-        setErrMessage("UserName is required!");
-        return;
-      }
-      if (formState.adminId.trim() === "") {
-        setErrMessage("UserName is required!");
-        return;
-      }
-
-    try {
-      const mutationResponse = await addTicket({
-        variables: {
-          title: formState.title,
-          userName: formState.password,
-          name: formState.name,
-        },
+const Ticket = (props) => {
+    const [formState, setFormState] = useState({ title: '', userName: '', adminId: "", devices: "", issues: "", status: "" });
+    const [ticket, { error, data }] = useMutation(ADD_TICKET);
+  
+    // update state based on form input changes
+    const handleChange = (event) => {
+      const { title, value } = event.target;
+  
+      setFormState({
+        ...formState,
+        [title]: value,
       });
-      const token = mutationResponse.data.addUser.token;
-      Auth.login(token);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-  return (
-    <div class="container pt-3 contact" id="signUp">
-      <div class="row justify-content-center ">
-        <div class="col-md-8">
-          <h1 class="text-center">
-            <u>SignUp</u>
-          </h1>
-        </div>
+    };
+  
+    // submit form
+    const handleFormSubmit = async (event) => {
+      event.preventDefault();
+      console.log(formState);
+      try {
+        const { data } = await ticket({
+          variables: { ...formState },
+        });
+  
+        
+      } catch (e) {
+        console.error(e);
+      }
+  
+      // clear form values
+      setFormState({
+        title: '',
+        userName: '',
+        adminId: 'Main',
+        devices: '',
+        issues: '',
+        status: 'Open'
+      });
+    };
+  
+    return (
+
+                <form onSubmit={handleFormSubmit}>
+                  <div class="row mb-3">
+    <label for="title" class="col-sm-2 col-form-label">A brief description of your issue: </label>
+    <div class="col-sm-10">
+      <input type="title" class="form-control" id="title"></input>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="userName" class="col-sm-2 col-form-label">Which user is having the problem?</label>
+    <div class="col-sm-10">
+      <input type="userName" class="form-control" id="userName"></input>
+    </div>
+  </div>
+  <fieldset class="row mb-3">
+    <legend class="col-form-label col-sm-2 pt-0">Which device does this impact?</legend>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="devices" value="option1" checked></input>
+        <label class="form-check-label" for="gridRadios1">
+          Computer
+        </label>
       </div>
-      <div class="row justify-content-center align-items-center">
-        <div class="col-lg-12 p-2 px-2">
-          <form onSubmit={handleFormSubmit}>
-            <div class="form-group px-5 p-3">
-              <label for="name" class="mb-2">
-                <h4>Name:</h4>
-              </label>
-              <input
-                type="text"
-                class="form-control "
-                name="name"
-                aria-describedby="nameHelp"
-                onChange={handleInputChange}
-              />
-            </div>
-
-            <div class="form-group px-5 pb-3">
-              <label for="email" class="mb-2">
-                <h4>Email Address:</h4>
-              </label>
-              <input
-                type="email"
-                class="form-control "
-                name="email"
-                aria-describedby="emailHelp"
-                onChange={handleInputChange}
-              />
-            </div>
-
-            <div class="form-group px-5 p-3">
-              <label for="userName" class="mb-2">
-                <h4>Username:</h4>
-              </label>
-              <input
-                type="text"
-                class="form-control "
-                name="userName"
-                onChange={handleInputChange}
-              />  
-            </div>
-
-            <div class="form-group px-5 p-3">
-              <label for="password" class="mb-2">
-                <h4>Password:</h4>
-              </label>
-              <input
-                type="password"
-                placeholder="******"
-                class="form-control "
-                name="password"
-                onChange={handleInputChange}
-              />
-            </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="devices" value="option2"></input>
+        <label class="form-check-label" for="gridRadios2">
+          Phone
+        </label>
+      </div>
+      <div class="form-check ">
+        <input class="form-check-input" type="radio" name="gridRadios" id="devices" value="option3" disabled></input>
+        <label class="form-check-label" for="gridRadios3">
+          Other
+        </label>
+      </div>
+      <div class="form-check disabled">
+        <input class="form-check-input" type="radio" name="gridRadios" id="adminId" value="option3" disabled></input>
+        <label class="form-check-label" for="gridRadios3">
+          Please assign to tech support
+        </label>
+      </div>
     
-            <div id="register-link" class="text-right mt-1">
-              <Link to="/Login" class="text-white">
-                Login Instead!
-              </Link>
-            </div>
-            <div class="text-center">
-              <button
-                type="submit"
-                class="btn btn-primary m-3 btn-lg"
-                id="contactButton"
-              >
-                <h5>Submit</h5>
-              </button>
-            </div>
-          </form>
-        </div>
+    </div>
+  </fieldset>
+  <fieldset class="row mb-3">
+    <legend class="col-form-label col-sm-2 pt-0">Which type of issue are you having?</legend>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="issues" value="option1" checked></input>
+        <label class="form-check-label" for="gridRadios1">
+          Internet Connection
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gridRadios" id="issues" value="option2"></input>
+        <label class="form-check-label" for="gridRadios2">
+          Hardware Malfunction
+        </label>
+      </div>
+      <div class="form-check ">
+        <input class="form-check-input" type="radio" name="gridRadios" id="issues" value="option3" disabled></input>
+        <label class="form-check-label" for="gridRadios3">
+          Other
+        </label>
+      </div>
+      
+    </div>
+    
+  </fieldset>
+  <div class="row mb-3">
+    <div class="col-sm-10 offset-sm-2">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="status"></input>
+        <label class="form-check-label" for="gridCheck1">
+          Please check this box to set your ticket status to Open
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="adminId"></input>
+        <label class="form-check-label" for="gridCheck1">
+          Please assign to Tech Support
+        </label>
       </div>
     </div>
-  );
-}
+    
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit your ticket </button>
 
-export default TicketForm;
+                </form>
+              
+  
+         );
+         }
+
+export default Ticket;

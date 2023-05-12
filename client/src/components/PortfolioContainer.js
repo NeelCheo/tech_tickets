@@ -3,6 +3,7 @@ import NavTabs from "./NavTabs";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Ticket from "./pages/TicketForm"
 
 import Header from "./Header";
 
@@ -19,7 +20,11 @@ export default function PortfolioContainer() {
     if (currentPage === "Login") {
       return <Login />;
     }
+    if (currentPage === "Ticket") {
+      return <Ticket/>;
+    }
     return <Signup />;
+    
   };
 
   const handlePageChange = (page) => setCurrentPage(page);
