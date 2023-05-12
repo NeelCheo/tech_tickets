@@ -1,26 +1,6 @@
 import { gql } from '@apollo/client';
 
-export const ADD_USER= gql`
-query user($userName: String!) {
-  user(userName: $userName) {
-    _id
-    name
-    userName
-    password
-    tickets{
-      _id
-      title
-      adminId
-      devices
-      issues
-      status
-    }
-    email
-    phone
-    Admin
-  }
-}
-`;
+
 
 export const QUERY_USERS = gql`
 query Users {
@@ -31,6 +11,8 @@ query Users {
   }
 }
 `;
+
+
 
 export const QUERY_USER= gql`
 query user($userName: String!) {

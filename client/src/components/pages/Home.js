@@ -8,12 +8,12 @@ import { QUERY_USER} from '../../utils/queries';
 //   color: grey;
 // `
 
+
 const Home = () => {
   const { loading, data } = useQuery(QUERY_USER, {
     fetchPolicy: "no-cache"
   });
 
-  const matchupList = data?.matchups || [];
 
   return (
     <div >
@@ -22,7 +22,7 @@ const Home = () => {
       </div>
       <div >
         <h2>Would you like to submit a ticket?</h2>
-        {loading ? (
+        {/* {loading ? (
           <div>Loading...</div>
         ) : (
           <ul className="square">
@@ -36,11 +36,11 @@ const Home = () => {
               );
             })}
           </ul>
-        )}
+        )} */}
       </div>
       
     </div>
   );
 };
 
-export default Home;
+ export default Home;

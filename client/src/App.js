@@ -3,10 +3,16 @@ import PortfolioContainer from "./components/PortfolioContainer";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
+
+// import Login from './pages/Login';
+// import SignUp from './pages/Signup';
+
+
 const client = new ApolloClient({
-  uri: '/graphql',
-  cache: new InMemoryCache(),
+	uri: '/graphql',
+	cache: new InMemoryCache(),
 });
+
 
 function App () { 
 
@@ -19,6 +25,7 @@ return (
 </Router>
 </ApolloProvider>
 );
+
 
 }
 
