@@ -1,28 +1,31 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import Auth from "../utils/auth";
-import { ADD_USER } from "../utils/mutations";
-import { validateEmail } from "../utils/helpers";
+import Auth from "../../utils/auth";
+import { ADD_TICKET} from "../../utils/mutations";
+import { validateEmail } from "../../utils/helpers";
 
-function Signup(props) {
+function TicketForm(props) {
   const [formState, setFormState] = useState({
-    email: "",
-    password: "",
-    name: "",
+    title: "",
+    userName: "",
+    adminId: "",
+    devices: "",
+    issues: "",
+    status: "New",
   });
   const [errMessage, setErrMessage] = useState("");
-  const [addUser, { error }] = useMutation(ADD_USER);
+  const [addTicket, { error }] = useMutation(ADD_TICKET);
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const { title, value } = e.target;
     setFormState({
       ...formState,
-      [name]: value,
+      [title]: value,
     });
-    if (name === "email") {
+    if (title === "") {
       !validateEmail(value)
-        ? setErrMessage("Valid Email is required!")
+        ? setErrMessage("Please tell us what trouble you are having")
         : setErrMessage("");
       return;
     }
@@ -31,28 +34,40 @@ function Signup(props) {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    if (formState.name.trim() === "") {
+    if (formState.title.trim() === "") {
       setErrMessage("Name is required!");
       return;
     }
-    if (formState.email.trim() === "" || !validateEmail(formState.email)) {
+    if (formState.userName.trim() === "" || !validateEmail(formState.email)) {
       setErrMessage("Valid Email is required!");
       return;
     }
-    if (formState.userName.trim() === "") {
+    if (formState.adminId.trim() === "") {
       setErrMessage("UserName is required!");
       return;
     }
-    if (formState.password.trim().length < 5) {
-      setErrMessage("Password should be atleast 5 characters long!");
-      return;
-    }
+    if (formState.devices.trim() === "") {
+        setErrMessage("UserName is required!");
+        return;
+      }
+      if (formState.adminId.trim() === "") {
+        setErrMessage("UserName is required!");
+        return;
+      }
+      if (formState.adminId.trim() === "") {
+        setErrMessage("UserName is required!");
+        return;
+      }
+      if (formState.adminId.trim() === "") {
+        setErrMessage("UserName is required!");
+        return;
+      }
 
     try {
-      const mutationResponse = await addUser({
+      const mutationResponse = await addTicket({
         variables: {
-          email: formState.email,
-          password: formState.password,
+          title: formState.title,
+          userName: formState.password,
           name: formState.name,
         },
       });
@@ -146,4 +161,4 @@ function Signup(props) {
   );
 }
 
-export default Signup;
+export default TicketForm;
