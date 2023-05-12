@@ -8,41 +8,24 @@ import NotFound from './src/pages/NotFound';
 import Login from './src/pages/Login';
 
 const client = new ApolloClient({
-  uri: '/graphql',
-  cache: new InMemoryCache(),
+	uri: '/graphql',
+	cache: new InMemoryCache(),
 });
 
 function App() {
-  return (
-    <ApolloProvider client={client}>
-      <Router>
-        <div className="flex-column justify-center align-center min-100-vh bg-primary">
-          <Routes>
-            <Route 
-              path="/" 
-              element={<Home />}
-            />
-            <Route 
-              path="/login" 
-              element={<Login />}
-            />
-            <Route 
-              path="/matchup" 
-              element={<Matchup />}
-            />
-            <Route 
-              path="/matchup/:id" 
-              element={<Vote />}
-            />
-            <Route 
-              path="*"
-              element={<NotFound />}
-            />
-          </Routes>
-        </div>
-      </Router>
-    </ApolloProvider>
-  );
+	return (
+		<Router>
+			<div className="flex-column justify-center align-center min-100-vh bg-primary">
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/login" element={<Login />} />
+					<Route path="/matchup" element={<Matchup />} />
+					<Route path="/matchup/:id" element={<Vote />} />
+					<Route path="*" element={<NotFound />} />
+				</Routes>
+			</div>
+		</Router>
+	);
 }
 
 export default App;
