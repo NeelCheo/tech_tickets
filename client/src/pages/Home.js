@@ -8,12 +8,12 @@ const style = css`
   color: grey;
 `
 
-const Home = () => {
-  const { loading, data } = useQuery(QUERY_MATCHUPS, {
-    fetchPolicy: "no-cache"
-  });
+// const Home = () => {
+//   const { loading, data } = useQuery(QUERY_MATCHUPS, {
+//     fetchPolicy: "no-cache"
+//   });
 
-  const matchupList = data?.matchups || [];
+//   const matchupList = data?.matchups || [];
 
   return (
     <div css={style}>
@@ -48,4 +48,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+// export default Home;
