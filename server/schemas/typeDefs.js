@@ -14,7 +14,7 @@ const typeDefs = gql`
 
 	type Ticket {
 		_id: ID!
-		userId: String
+		userName: String
 		adminId: String
 		devices: String
 		issues: String
@@ -28,7 +28,7 @@ const typeDefs = gql`
 	type Query {
 		users: [User]
 		user(userName: String!): User
-		tickets(userId: String!): [Ticket]
+		tickets(userName: String!): [Ticket]
 		ticket(_id: ID!): Ticket
 	}
 

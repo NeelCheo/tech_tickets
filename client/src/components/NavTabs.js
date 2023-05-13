@@ -30,10 +30,10 @@ function NavTabs({ currentPage, handlePageChange }) {
       </li>
       <li className="nav-item">
         <a
-          href="#contact"
-          onClick={() => handlePageChange('Submit')}
+          href="#Ticket"
+          onClick={() => handlePageChange('Ticket')}
           // Check to see if the currentPage is `Contact`, and if so we use the active link class from bootstrap. Otherwise, we set it to a normal nav-link
-          className={currentPage === 'Submit' ? 'nav-link active' : 'nav-link'}
+          className={currentPage === 'Ticket' ? 'nav-link active' : 'nav-link'}
         >
           Submit a New Ticket
         </a>
