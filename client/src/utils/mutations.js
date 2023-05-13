@@ -6,6 +6,7 @@ export const LOGIN = gql`
 			token
 			user {
 				_id
+				userName
 			}
 		}
 	}
@@ -36,11 +37,23 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_TICKET = gql`
-mutation Mutation($title: String!, $userName: String!, $devices: String!, $issues: String!, $adminId: String, $status: String) {
-	addTicket(title: $title, userName: $userName, devices: $devices, issues: $issues, adminId: $adminId, status: $status) {
-	  userName
+	mutation Mutation(
+		$title: String!
+		$userName: String!
+		$devices: String!
+		$issues: String!
+		$adminId: String
+		$status: String
+	) {
+		addTicket(
+			title: $title
+			userName: $userName
+			devices: $devices
+			issues: $issues
+			adminId: $adminId
+			status: $status
+		) {
+			userName
+		}
 	}
-  }
-      `
-  
-    ;
+`;

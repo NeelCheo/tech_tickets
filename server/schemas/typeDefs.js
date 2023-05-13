@@ -40,7 +40,7 @@ const typeDefs = gql`
 			email: String!
 			phone: String!
 		): Auth
-		login(userName: String!, password: String!): Auth
+		login(email: String!, password: String!): Auth
 		addTicket(
 			title: String!
 			userName: String!
