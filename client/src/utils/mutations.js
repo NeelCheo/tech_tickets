@@ -36,13 +36,11 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_TICKET = gql`
-  mutation addTicket($title: String!, $userName: String!, adminID: String!, devices: String!, issues: String!, status: String!) {
-    addTicket(title: $title, userName: $userName, adminId: $adminId, devices: $devices, issues: $issues, status: $status) {
-      _id
-      title
-      userName
-      adminId
-      devices
-      issues
-      status
-      `;
+mutation Mutation($title: String!, $userName: String!, $devices: String!, $issues: String!, $adminId: String, $status: String) {
+	addTicket(title: $title, userName: $userName, devices: $devices, issues: $issues, adminId: $adminId, status: $status) {
+	  userName
+	}
+  }
+      `
+  
+    ;

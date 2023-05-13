@@ -1,28 +1,28 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_MATCHUPS } from '../utils/queries';
-import { css } from '@emotion/react';
-import { DropdownMenu} from '../utils/dropdown'
+import { QUERY_USER} from '../../utils/queries';
+//import { css } from '@emotion/react';
+//import { DropdownMenu } from '../utils/dropdown'
 
-const style = css`
-  color: grey;
-`
+// const style = css`
+//   color: grey;
+// `
 
-// const Home = () => {
-//   const { loading, data } = useQuery(QUERY_MATCHUPS, {
-//     fetchPolicy: "no-cache"
-//   });
 
-//   const matchupList = data?.matchups || [];
+const Home = () => {
+  const { loading, data } = useQuery(QUERY_USER, {
+    fetchPolicy: "no-cache"
+  });
+
 
   return (
-    <div css={style}>
+    <div >
       <div >
         <h1>Welcome to Tech Tips!</h1>
       </div>
       <div >
         <h2>Would you like to submit a ticket?</h2>
-        {loading ? (
+        {/* {loading ? (
           <div>Loading...</div>
         ) : (
           <ul className="square">
@@ -36,16 +36,11 @@ const style = css`
               );
             })}
           </ul>
-        )}
+        )} */}
       </div>
-      <div className="card-footer text-center m-3">
-        <h2>Ready to create a new matchup?</h2>
-        <Link to="/matchup">
-          <button className="btn btn-lg btn-danger">Create Matchup!</button>
-        </Link>
-      </div>
+      
     </div>
   );
 };
 
-// export default Home;
+ export default Home;

@@ -62,7 +62,7 @@ const resolvers = {
 		) => {
 			// First we create the user
 			// To reduce friction for the user, we immediately sign a JSON Web Token and log the user in after they are created
-
+			console.log("hello")
 			// Return an `Auth` object that consists of the signed token and user's informatio
 
 			const ticket = await Ticket.create({
