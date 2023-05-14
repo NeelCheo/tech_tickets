@@ -32,18 +32,15 @@ function Login(props) {
   };
 
   return (
-    <div class="container pt-3 contact">
-      <div class="row justify-content-center ">
-        <div class="col-md-8">
-          <h1 class="text-center">
-            <u>Login</u>
-          </h1>
+    <div class="container">
+      <div id="login ">
+        <div class="text-center">
+          <h1><u>Login</u></h1>
         </div>
-      </div>
-      <div class="row justify-content-center align-items-center">
-        <div class="col-lg-12 p-2 px-2">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
           <form onSubmit={handleFormSubmit}>
-            <div class="form-group px-5 pb-3">
+            <div class="form-group">
               <label for="email" class="mb-2">
                 <h4>Email Address:</h4>
               </label>
@@ -55,7 +52,7 @@ function Login(props) {
                 onChange={handleChange}
               />
             </div>
-            <div class="form-group px-5 p-3">
+            <div class="form-group">
               <label for="password" class="mb-2">
                 <h4>Password:</h4>
               </label>
@@ -89,6 +86,7 @@ function Login(props) {
           </form>
         </div>
       </div>
+    </div>
     </div>
   );
 }

@@ -46,102 +46,77 @@ const Ticket = (props) => {
       });
     };
   
+    
     return (
-       isSubmitted ? <h1>Thanks for submitting your ticket. Please check its status in the Open Tickets tab!</h1> : <form onSubmit={handleFormSubmit}>
-        <div class="row mb-3">
-<label for="title" class="col-sm-2 col-form-label">A brief description of your issue: </label>
-<div class="col-sm-10">
-<input type="title" class="form-control" id="title" onChange={handleChange}></input>
+      isSubmitted ? (
+      
+        <div className="container">
+          <h1>Thanks for submitting your ticket. Please check its status in the Open Tickets tab!</h1>
+        </div>
+      ) : 
+        <div className="container">
+          <form onSubmit={handleFormSubmit}>
+            <div className="mb-3">
+              <label htmlFor="title" className="form-label">A brief description of your issue:</label>
+              <input type="text" className="form-control" id="title" onChange={handleChange} />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="userName" className="form-label">Which user is having the problem?</label>
+              <input type="text" className="form-control" id="userName" onChange={handleChange} />
+            </div>
+            <fieldset className="mb-3">
+              <legend className="col-form-label">Which device does this impact?</legend>
+              <div className="form-check">
+                <input className="form-check-input" type="radio" name="gridRadios" id="computer" onChange={handleChange} value="Computer" />
+                <label className="form-check-label" htmlFor="computer">Computer</label>
+              </div>
+              <div className="form-check">
+                <input className="form-check-input" type="radio" name="gridRadios" id="phone" onChange={handleChange} value="Phone" />
+                <label className="form-check-label" htmlFor="phone">Phone</label>
+              </div>
+              <div className="form-check">
+                <input className="form-check-input" type="radio" name="gridRadios" id="other" onChange={handleChange} value="Other" disabled />
+                <label className="form-check-label" htmlFor="other">Other</label>
+              </div>
+              <div className="form-check">
+                <input className="form-check-input" type="radio" name="gridRadios" id="techSupport" onChange={handleChange} value="Tech Support" disabled />
+                <label className="form-check-label" htmlFor="techSupport">Please assign to tech support</label>
+              </div>
+            </fieldset>
+            <fieldset className="mb-3">
+              <legend className="col-form-label">Which type of issue are you having?</legend>
+              <div className="form-check">
+                <input className="form-check-input" type="radio" name="gridRadios2" id="internet" onChange={handleChange} value="Internet Connection" />
+                <label className="form-check-label" htmlFor="internet">Internet Connection</label>
+              </div>
+              <div className="form-check">
+                <input className="form-check-input" type="radio" name="gridRadios2" id="hardware" onChange={handleChange} value="Hardware Malfunction" />
+                <label className="form-check-label" htmlFor="hardware">Hardware Malfunction</label>
+              </div>
+              <div className="form-check">
+                <input className="form-check-input" type="radio" name="gridRadios2" id="other2" onChange={handleChange} value="Other" />
+                <label className="form-check-label" htmlFor="other2">Other</label>
+              </div>
+            </fieldset>
+            <div className="mb-3">
+              <div className="form-check">
+              <input className="form-check-input" type="checkbox" id="status" onChange={handleChange} />
+              <label className="form-check-label" htmlFor="status">Please check this box to set your ticket status to Open</label>
+           
+              <div className="mb-3">
+              <div className="form-check">
+    <input className="form-check-input" type="checkbox" id="adminId" onChange={handleChange} />
+    <label className="form-check-label" htmlFor="adminId">Please assign to Tech Support</label>
+  </div>
 </div>
 </div>
-<div class="row mb-3">
-<label for="userName" class="col-sm-2 col-form-label">Which user is having the problem?</label>
-<div class="col-sm-10">
-<input type="userName" class="form-control" id="userName" onChange={handleChange}></input>
-</div>
-</div>
-<fieldset class="row mb-3">
-<legend class="col-form-label col-sm-2 pt-0">Which device does this impact?</legend>
-<div class="col-sm-10">
-<div class="form-check">
-<input class="form-check-input" type="radio" name="gridRadios" id="devices" onChange={handleChange} value="option1" ></input>
-<label class="form-check-label" for="gridRadios1">
-Computer
-</label>
-</div>
-<div class="form-check">
-<input class="form-check-input" type="radio" name="gridRadios" id="devices" onChange={handleChange} value="option2"></input>
-<label class="form-check-label" for="gridRadios2">
-Phone
-</label>
-</div>
-<div class="form-check ">
-<input class="form-check-input" type="radio" name="gridRadios" id="devices" onChange={handleChange} value="option3" disabled></input>
-<label class="form-check-label" for="gridRadios3">
-Other
-</label>
-</div>
-<div class="form-check disabled">
-<input class="form-check-input" type="radio" name="gridRadios" id="adminId" onChange={handleChange} value="option3" disabled></input>
-<label class="form-check-label" for="gridRadios3">
-Please assign to tech support
-</label>
-</div>
-
-</div>
-</fieldset>
-<fieldset class="row mb-3">
-<legend class="col-form-label col-sm-2 pt-0">Which type of issue are you having?</legend>
-<div class="col-sm-10">
-<div class="form-check">
-<input class="form-check-input" type="radio" name="gridRadios2" id="issues" onChange={handleChange} value="Internet" ></input>
-<label class="form-check-label" for="gridRadios1">
-Internet Connection
-</label>
-</div>
-<div class="form-check">
-<input class="form-check-input" type="radio" name="gridRadios2" id="issues" onChange={handleChange} value="Hardware"></input>
-<label class="form-check-label" for="gridRadios2">
-Hardware Malfunction
-</label>
-</div>
-<div class="form-check ">
-<input class="form-check-input" type="radio" name="gridRadios2" id="issues" onChange={handleChange} value="option3" ></input>
-<label class="form-check-label" for="gridRadios3">
-Other
-</label>
-</div>
-
-</div>
-
-</fieldset>
-<div class="row mb-3">
-<div class="col-sm-10 offset-sm-2">
-<div class="form-check">
-<input class="form-check-input" type="checkbox" id="status" onChange={handleChange}></input>
-<label class="form-check-label" for="gridCheck1">
-Please check this box to set your ticket status to Open
-</label>
-</div>
-<div class="form-check">
-<input class="form-check-input" type="checkbox" id="adminId" onChange={handleChange}></input>
-<label class="form-check-label" for="gridCheck1">
-Please assign to Tech Support
-</label>
-</div>
-</div>
-
 </div>
 
 <button type="submit" class="btn btn-primary">Submit your ticket </button>
 
-      </form>
-    
-  
+  </form>
+  </div>
+    );
+      }
 
-                
-  
-         );
-   }
-
-export default Ticket;
+      export default Ticket;
