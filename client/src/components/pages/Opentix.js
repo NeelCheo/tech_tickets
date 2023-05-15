@@ -36,7 +36,7 @@ const TicketList = () => {
             ) : (
               <OpenTickets 
                 tickets={tickets}
-                title="Some Feed for Thought(s)..."
+                title="Tickets awaiting assignment"
               />
             )}
           </div>
