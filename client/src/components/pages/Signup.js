@@ -5,6 +5,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
+import "../styles/Submit.css"
 
 const Signup = () => {
 	const [formState, setFormState] = useState({
@@ -51,8 +52,8 @@ const Signup = () => {
 					<div className="card-body">
 						{data ? (
 							<p>
-								Success! You may now head{' '}
-								<Link to="/login">back to the homepage.</Link>
+								Success! You may now head to the ticket submission form{' '}
+								{/* <Link to="/login">back to the homepage.</Link> */}
 							</p>):(
 						
 							<div class="row justify-content-center text-center">

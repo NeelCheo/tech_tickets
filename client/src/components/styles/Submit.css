@@ -1,3 +1,18 @@
 .form{
-padding: 50px;
+padding: 1%;
+}
+
+.h4 .card-header .bg-success
+ .text-light .p-2 .m-0{
+    background-color: cornflowerblue !important;
+}
+
+.tix {
+    padding: 2%;
+
+}
+
+.container{
+display: inline-table;
+flex-direction: column
 }
