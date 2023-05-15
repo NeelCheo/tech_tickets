@@ -76,17 +76,12 @@ Phone
 </label>
 </div>
 <div class="form-check ">
-<input class="form-check-input" type="radio" name="gridRadios" id="devices" onChange={handleChange} value="option3" disabled></input>
+<input class="form-check-input" type="radio" name="gridRadios" id="devices" onChange={handleChange} value="option3" ></input>
 <label class="form-check-label" for="gridRadios3">
 Other
 </label>
 </div>
-<div class="form-check disabled">
-<input class="form-check-input" type="radio" name="gridRadios" id="adminId" onChange={handleChange} value="option3" disabled></input>
-<label class="form-check-label" for="gridRadios3">
-Please assign to tech support
-</label>
-</div>
+
 
 </div>
 </fieldset>

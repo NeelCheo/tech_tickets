@@ -4,8 +4,10 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Ticket from './pages/TicketForm';
+import TicketList from "./pages/Opentix";
 
 import Header from './Header';
+
 
 //import '../styles/Container.css'
 
@@ -22,6 +24,9 @@ export default function PortfolioContainer() {
 		}
 		if (currentPage === 'Ticket') {
 			return <Ticket />;
+		}
+    if (currentPage === 'Open') {
+			return <TicketList />;
 		}
 		return <Signup />;
 	};
