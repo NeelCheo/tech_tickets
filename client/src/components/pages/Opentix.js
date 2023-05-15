@@ -11,7 +11,7 @@ const TicketList = () => {
     // Execute the query on component load
     const { loading, data } = useQuery(QUERY_TICKETS);
   
-    // Use optional chaining to check if data exists and if it has a thoughts property. If not, return an empty array to use.
+    
     const tickets = data?.tickets || [];
   
     return (

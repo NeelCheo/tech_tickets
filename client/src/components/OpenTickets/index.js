@@ -12,13 +12,13 @@ const OpenTickets = ({ tickets, title, userName, issues, devices, status }) => {
         tickets.map((tickets) => (
           <div key={tickets._id} className="card mb-3">
             <h4 className="card-header bg-primary text-light p-2 m-0">
-              {tickets.userName} <br />
-              <span style={{ fontSize: '1rem' }}>
-                Device: {tickets.devices}
-                description : {tickets.title}
-              </span>
+              {tickets.title} <br />
+              
             </h4>
             <div className="card-body bg-light p-2">
+                User: {tickets.userName} <br/>
+                Device: {tickets.devices} <br/>
+                
               <p>{tickets.issues}</p>
             </div>
           </div>

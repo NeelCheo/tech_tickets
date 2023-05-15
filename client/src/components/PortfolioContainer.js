@@ -28,7 +28,7 @@ export default function PortfolioContainer() {
     if (currentPage === 'Open') {
 			return <TicketList />;
 		}
-		return <Signup />;
+		return <Home />;
 	};
 
 	const handlePageChange = (page) => setCurrentPage(page);

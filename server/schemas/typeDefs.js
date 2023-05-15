@@ -14,6 +14,7 @@ const typeDefs = gql`
 
 	type Ticket {
 		_id: ID!
+		title: String
 		userName: String
 		adminId: String
 		devices: String

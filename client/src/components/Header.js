@@ -4,7 +4,7 @@ import React from 'react';
 export default function Header() {
   return (
     <div className= "header">
-      <h1>Welcome to Tech Tickets</h1>
+      <h1>Tech Tickets 🖥️🎟️</h1>
       
  
     </div>
