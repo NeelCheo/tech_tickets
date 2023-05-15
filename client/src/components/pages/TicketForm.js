@@ -35,15 +35,8 @@ const Ticket = (props) => {
         console.error(e);
       }
   
-      // clear form values
-      setFormState({
-        title: '',
-        userName: '',
-        adminId: 'Main',
-        devices: '',
-        issues: '',
-        status: 'Open'
-      });
+      
+    
     };
   
     return (
@@ -64,19 +57,19 @@ const Ticket = (props) => {
 <legend class="col-form-label col-sm-2 pt-0">Which device does this impact?</legend>
 <div class="col-sm-10">
 <div class="form-check">
-<input class="form-check-input" type="radio" name="gridRadios" id="devices" onChange={handleChange} value="option1" ></input>
+<input class="form-check-input" type="radio" name="gridRadios" id="devices" onChange={handleChange} value="Computer" ></input>
 <label class="form-check-label" for="gridRadios1">
 Computer
 </label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="gridRadios" id="devices" onChange={handleChange} value="option2"></input>
+<input class="form-check-input" type="radio" name="gridRadios" id="devices" onChange={handleChange} value="Phone"></input>
 <label class="form-check-label" for="gridRadios2">
 Phone
 </label>
 </div>
 <div class="form-check ">
-<input class="form-check-input" type="radio" name="gridRadios" id="devices" onChange={handleChange} value="option3" ></input>
+<input class="form-check-input" type="radio" name="gridRadios" id="devices" onChange={handleChange} value="Other" ></input>
 <label class="form-check-label" for="gridRadios3">
 Other
 </label>
@@ -128,7 +121,7 @@ Please assign to Tech Support
 
 </div>
 
-<button type="submit" class="btn btn-primary">Submit your ticket </button>
+<button type="submit" class="btn btn-primary" onChange={handleChange}>Submit your ticket </button>
 
       </form>
     

@@ -15,6 +15,7 @@ const OpenTickets = ({ tickets, title, userName, issues, devices, status }) => {
               {tickets.userName} <br />
               <span style={{ fontSize: '1rem' }}>
                 Device: {tickets.devices}
+                description : {tickets.title}
               </span>
             </h4>
             <div className="card-body bg-light p-2">
