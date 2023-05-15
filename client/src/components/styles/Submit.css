@@ -11,3 +11,8 @@ padding: 1%;
     padding: 2%;
 
 }
+
+.container{
+display: inline-table;
+flex-direction: column
+}
