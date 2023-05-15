@@ -41,18 +41,35 @@ const Signup = () => {
 	};
 
 	return (
-		<main className="flex-row justify-center mb-4">
-			<div className="col-12 col-lg-10">
-				<div className="card">
-					<h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
+		
+		<div class="container">
+				
+				<div id="signUp">
+				<div class="text-center">
+				<h1><u>SignUp</u> </h1>
+				</div>
 					<div className="card-body">
 						{data ? (
 							<p>
 								Success! You may now head{' '}
 								<Link to="/login">back to the homepage.</Link>
-							</p>
-						) : (
+							</p>):(
+						
+							<div class="row justify-content-center text-center">
+							<div class="col-md-6">
+							
 							<form onSubmit={handleFormSubmit}>
+							<div class="form-group">
+							<label for="name">
+                
+              </label>
+			  </div>
+			  <div class="form-group">
+			  <label for="userName" class="mb-2">
+                <h4>Name:</h4>
+              </label>
+				
+             
 								<input
 									className="form-input"
 									placeholder="Your Name"
@@ -61,6 +78,11 @@ const Signup = () => {
 									value={formState.name}
 									onChange={handleChange}
 								/>
+								</div>
+								<div class="form-group">
+								<label for="userName" class="mb-2">
+                <h4>Username:</h4>
+              </label>
 								<input
 									className="form-input"
 									placeholder="Your username"
@@ -69,6 +91,10 @@ const Signup = () => {
 									value={formState.userName}
 									onChange={handleChange}
 								/>
+								</div>
+								<label for="userName" class="mb-2">
+                <h4>Password:</h4>
+              </label>
 								<input
 									className="form-input"
 									placeholder="******"
@@ -77,6 +103,10 @@ const Signup = () => {
 									value={formState.password}
 									onChange={handleChange}
 								/>
+								<div class="form-group">
+								<label for="userName" class="mb-2">
+                <h4>Email:</h4>
+              </label>
 								<input
 									className="form-input"
 									placeholder="Your email"
@@ -85,6 +115,11 @@ const Signup = () => {
 									value={formState.email}
 									onChange={handleChange}
 								/>
+								</div>
+								<div class="form-group">
+								<label for="userName" class="mb-2">
+                <h4>Phone:</h4>
+              </label>
 								<input
 									className="form-input"
 									placeholder="Phone Number"
@@ -93,7 +128,7 @@ const Signup = () => {
 									value={formState.phone}
 									onChange={handleChange}
 								/>
-
+</div>
 								<button
 									className="btn btn-block btn-primary"
 									style={{ cursor: 'pointer' }}
@@ -101,7 +136,15 @@ const Signup = () => {
 								>
 									Submit
 								</button>
+								
 							</form>
+							<div id="register-link" class="">
+              <Link to="/Login" class="text-white">
+                Login Instead!
+              </Link>
+            </div>
+							</div>
+							</div>
 						)}
 
 						{error && (
@@ -112,8 +155,10 @@ const Signup = () => {
 					</div>
 				</div>
 			</div>
-		</main>
+		
 	);
 };
 
 export default Signup;
+
+

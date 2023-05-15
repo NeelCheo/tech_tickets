@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER} from '../../utils/queries';
+import '../styles/Home.css'
 //import { css } from '@emotion/react';
 //import { DropdownMenu } from '../utils/dropdown'
 
@@ -17,10 +18,8 @@ const Home = () => {
 
   return (
     <div >
-      <div >
-        <h1>Welcome to Tech Tickets </h1>
-      </div>
-      <div >
+      
+      <div className='text' >
         <h2>Would you like to submit a ticket?</h2>
         <h3>To get started, please Login or Signup!</h3>
        
