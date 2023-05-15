@@ -8,6 +8,7 @@ import Auth from '../../utils/auth';
 function Login(props) {
 	const [formState, setFormState] = useState({ email: '', password: '' });
 	const [login, { error, data }] = useMutation(LOGIN);
+	const [isSubmitted, setisSubmitted] = useState(false);
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;
@@ -26,6 +27,7 @@ function Login(props) {
 			const { data } = await login({
 				variables: { ...formState },
 			});
+			setisSubmitted(true)
 
 			Auth.login(data.login.token);
 		} catch (e) {
@@ -40,53 +42,67 @@ function Login(props) {
 	};
 
 	return (
-		<main className="flex-row justify-center mb-4">
-			<div className="col-12 col-lg-10">
-				<div className="card">
-					<h4 className="card-header bg-dark text-light p-2">Login</h4>
-					<div className="card-body">
-						{data ? (
-							<p>
-								Success! You may now head{' '}
-								<Link to="/">back to the homepage.</Link>
-							</p>
-						) : (
-							<form onSubmit={handleFormSubmit}>
-								<input
-									className="form-input"
-									placeholder="Your email"
-									name="email"
-									type="email"
-									value={formState.email}
-									onChange={handleChange}
-								/>
-								<input
-									className="form-input"
-									placeholder="******"
-									name="password"
-									type="password"
-									value={formState.password}
-									onChange={handleChange}
-								/>
-								<button
-									className="btn btn-block btn-primary"
-									style={{ cursor: 'pointer' }}
-									type="submit"
-								>
-									Submit
-								</button>
-							</form>
-						)}
+		isSubmitted ? <p>
+		Success! You may now head to the ticket submission form{' '}
+		{/* <Link to="/#Ticket">to the ticket form.</Link> */}
+	</p>: 
+		
+		<div class="container">
+      <div id="login ">
+        <div class="text-center">
+          <h1><u>Login</u></h1>
+        </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <form onSubmit={handleFormSubmit}>
+            <div class="form-group">
+              <label for="email" class="mb-2">
+                <h4>Email Address:</h4>
+              </label>
+              <input
+                type="email"
+                class="form-control "
+                name="email"
+                aria-describedby="emailHelp"
+                onChange={handleChange}
+              />
+            </div>
+            <div class="form-group">
+              <label for="password" class="mb-2">
+                <h4>Password:</h4>
+              </label>
+              <input
+                type="password"
+                placeholder="******"
+                class="form-control "
+                name="password"
+                onChange={handleChange}
+              />
+            </div>
 
-						{error && (
-							<div className="my-3 p-3 bg-danger text-white">
-								{error.message}
-							</div>
-						)}
-					</div>
-				</div>
-			</div>
-		</main>
+            {error ? (
+              <h5 class="pt-2 px-5">The provided credentials are incorrect</h5>
+            ) : null}
+
+            <div id="register-link" class="text-right mt-1">
+              <Link to="/signup" class="text-white">
+                SignUp Instead!
+              </Link>
+            </div>
+            <div class="text-center">
+              <button
+                type="submit"
+                class="btn btn-primary m-3 btn-lg"
+                id="contactButton"
+              >
+                <h5>Submit</h5>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    </div>
 	);
 }
 

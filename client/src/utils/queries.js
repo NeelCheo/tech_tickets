@@ -35,3 +35,13 @@ query user($userName: String!) {
   }
 }
 `;
+
+export const QUERY_TICKETS= gql` {
+  tickets {
+    title
+    devices
+    issues
+    userName
+  }
+}
+`;

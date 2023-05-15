@@ -4,8 +4,10 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Ticket from './pages/TicketForm';
+import TicketList from "./pages/Opentix";
 
 import Header from './Header';
+
 
 //import '../styles/Container.css'
 
@@ -14,8 +16,8 @@ export default function PortfolioContainer() {
 
 	// This method is checking to see what the value of `currentPage` is. Depending on the value of currentPage, we return the corresponding component to render.
 	const renderPage = () => {
-		if (currentPage === 'Home') {
-			return <Home />;
+		if (currentPage === 'Signup') {
+			return <Signup />;
 		}
 		if (currentPage === 'Login') {
 			return <Login />;
@@ -23,7 +25,10 @@ export default function PortfolioContainer() {
 		if (currentPage === 'Ticket') {
 			return <Ticket />;
 		}
-		return <Signup />;
+    if (currentPage === 'Open') {
+			return <TicketList />;
+		}
+		return <Home />;
 	};
 
 	const handlePageChange = (page) => setCurrentPage(page);

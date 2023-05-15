@@ -10,10 +10,14 @@ const resolvers = {
 		user: async (parent, { userName }) => {
 			return User.findOne({ userName }).populate('tickets');
 		},
-		tickets: async (parent, { userName }) => {
-			const params = userName ? { userName } : {};
-			return Ticket.find(params);
-		},
+		// tickets: async (parent, { userName }) => {
+		// 	const params = userName ? { userName } : {};
+		// 	return Ticket.find(params);
+		// },
+		tickets: async () => {
+			return Ticket.find();
+			
+		}
 		// ticket: async (parent, { ticketId }) => {
 		//   return Ticket.findOne({ _id: ticketId });
 		// },

@@ -3,6 +3,7 @@ import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { ADD_TICKET } from "../../utils/mutations";
 import Login from "./Login";
+import "../styles/Submit.css"
 
 
 
@@ -35,62 +36,51 @@ const Ticket = (props) => {
         console.error(e);
       }
   
-      // clear form values
-      setFormState({
-        title: '',
-        userName: '',
-        adminId: 'Main',
-        devices: '',
-        issues: '',
-        status: 'Open'
-      });
+      
+    
     };
   
     return (
        isSubmitted ? <h1>Thanks for submitting your ticket. Please check its status in the Open Tickets tab!</h1> : <form onSubmit={handleFormSubmit}>
-        <div class="row mb-3">
+        
+        <div class="row mb-3" className= "form" >
 <label for="title" class="col-sm-2 col-form-label">A brief description of your issue: </label>
-<div class="col-sm-10">
+<div class="col-sm-10" >
 <input type="title" class="form-control" id="title" onChange={handleChange}></input>
 </div>
 </div>
-<div class="row mb-3">
+<div class="row mb-3" className= "form">
 <label for="userName" class="col-sm-2 col-form-label">Which user is having the problem?</label>
 <div class="col-sm-10">
 <input type="userName" class="form-control" id="userName" onChange={handleChange}></input>
 </div>
 </div>
-<fieldset class="row mb-3">
+<fieldset class="row mb-3" className= "form">
 <legend class="col-form-label col-sm-2 pt-0">Which device does this impact?</legend>
 <div class="col-sm-10">
 <div class="form-check">
-<input class="form-check-input" type="radio" name="gridRadios" id="devices" onChange={handleChange} value="option1" ></input>
+<input class="form-check-input" type="radio" name="gridRadios" id="devices" onChange={handleChange} value="Computer" ></input>
 <label class="form-check-label" for="gridRadios1">
 Computer
 </label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="gridRadios" id="devices" onChange={handleChange} value="option2"></input>
+<input class="form-check-input" type="radio" name="gridRadios" id="devices" onChange={handleChange} value="Phone"></input>
 <label class="form-check-label" for="gridRadios2">
 Phone
 </label>
 </div>
 <div class="form-check ">
-<input class="form-check-input" type="radio" name="gridRadios" id="devices" onChange={handleChange} value="option3" disabled></input>
+<input class="form-check-input" type="radio" name="gridRadios" id="devices" onChange={handleChange} value="Other" ></input>
 <label class="form-check-label" for="gridRadios3">
 Other
 </label>
 </div>
-<div class="form-check disabled">
-<input class="form-check-input" type="radio" name="gridRadios" id="adminId" onChange={handleChange} value="option3" disabled></input>
-<label class="form-check-label" for="gridRadios3">
-Please assign to tech support
-</label>
-</div>
+
 
 </div>
 </fieldset>
-<fieldset class="row mb-3">
+<fieldset class="row mb-3" className= "form">
 <legend class="col-form-label col-sm-2 pt-0">Which type of issue are you having?</legend>
 <div class="col-sm-10">
 <div class="form-check">
@@ -101,8 +91,7 @@ Internet Connection
 </div>
 <div class="form-check">
 <input class="form-check-input" type="radio" name="gridRadios2" id="issues" onChange={handleChange} value="Hardware"></input>
-<label class="form-check-label" for="gridRadios2">
-Hardware Malfunction
+<label class="form-check-label" for="gridRadios2"> Hardware Malfunction
 </label>
 </div>
 <div class="form-check ">
@@ -115,14 +104,13 @@ Other
 </div>
 
 </fieldset>
-<div class="row mb-3">
-<div class="col-sm-10 offset-sm-2">
+<div class="row mb-3" className= "form">
 <div class="form-check">
 <input class="form-check-input" type="checkbox" id="status" onChange={handleChange}></input>
 <label class="form-check-label" for="gridCheck1">
 Please check this box to set your ticket status to Open
 </label>
-</div>
+
 <div class="form-check">
 <input class="form-check-input" type="checkbox" id="adminId" onChange={handleChange}></input>
 <label class="form-check-label" for="gridCheck1">
@@ -133,15 +121,19 @@ Please assign to Tech Support
 
 </div>
 
-<button type="submit" class="btn btn-primary">Submit your ticket </button>
+<button type="submit" class="btn btn-primary" onChange={handleChange}>Submit your ticket </button>
+
 
       </form>
+      
     
   
 
                 
   
          );
+         
    }
+   
 
 export default Ticket;
