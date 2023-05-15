@@ -52,8 +52,8 @@ const Signup = () => {
 					<div className="card-body">
 						{data ? (
 							<p>
-								Success! You may now head{' '}
-								<Link to="/login">back to the homepage.</Link>
+								Success! You may now head to the ticket submission form{' '}
+								{/* <Link to="/login">back to the homepage.</Link> */}
 							</p>):(
 						
 							<div class="row justify-content-center text-center">
