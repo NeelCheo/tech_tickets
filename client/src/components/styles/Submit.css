@@ -6,3 +6,8 @@ padding: 1%;
  .text-light .p-2 .m-0{
     background-color: cornflowerblue !important;
 }
+
+.tix {
+    padding: 2%;
+
+}
